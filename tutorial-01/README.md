@@ -56,7 +56,7 @@ Hello World!
 
 Side-by-side split view of the terminal pane makes it easier to do the demo:
 
-![image alt text](img/image_8.png)
+![image alt text](../img/image_8.png)
 
 You now have a Hello World REST service running and listening on port 9090.
 
