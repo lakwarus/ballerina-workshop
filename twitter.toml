@@ -1,0 +1,6 @@
+# Ballerina workshop demo config file
+# Put the actual values from apps.twitter.com
+clientId=""
+clientSecret=""
+accessToken=""
+accessTokenSecret=""
