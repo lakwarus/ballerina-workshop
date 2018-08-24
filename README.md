@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/ballerina-guides/ballerina-demo.svg?branch=master)](https://travis-ci.org/ballerina-guides/ballerina-demo)
-
 # Workshop - Cloud Native Programing with Docker, Kubernetes, and Ballerina
 
 Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
@@ -69,18 +67,6 @@ Demo tested on:
 ## Twitter
 
 The workshop is using Twitter account to send tweets.
-
-If you want to re-use my demo account [https://twitter.com/B7aWorkshop](https://twitter.com/B7aWorkshop) - Please contact me I will give the corresponding twitter.toml config file.
-
-Before starting your demo, delete all the old tweets - manually or by using **twitter_cleanup.bal** script that ships with the demo:
-
-```
-ballerina run twitter_cleanup.bal --config twitter.toml
-
-curl -X DELETE localhost:9090/B7aDemo/0
-```
-
-![image alt text](img/image_4.png)
 
 For your own Twitter account:
 
