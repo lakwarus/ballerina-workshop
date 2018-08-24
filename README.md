@@ -74,7 +74,6 @@ For your own Twitter account:
 2. Go to [https://apps.twitter.com/](https://apps.twitter.com/)
 3. Click the **Create New App** button and provide the info: ![image alt text](img/image_5.png)
 4. In the app, go to the **Keys and Access Tokens** tab:
-![image alt text](img/image_6.png)
 5. Generate keys and tokens if you have not done that so.
 6. In your demo folder, create file **twitter.toml** and put the keys and tokens that you get from the twitter apps UI:
 
