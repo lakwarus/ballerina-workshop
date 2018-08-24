@@ -8,7 +8,6 @@ Target audience: technical: workshop, meetups, technical customers/partners - th
 
 ## Slide deck
 
-[Ballerina Overview and Demo.pptx](https://docs.google.com/presentation/d/1yuixfusHrICWn6nxRobDEMjuWaHvn3qMJMzQnjNIkMk/edit?usp=sharing)
 
 ## Ballerina
 
