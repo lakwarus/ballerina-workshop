@@ -55,7 +55,7 @@ You are provided with a list of Default Settings. Copy any setting that you want
 * It is highly recommended that you set **Auto Save** in VS Code. It is very easy to forget to save the file before building and then wonder why your code is not working as expected.
 ![image alt text](img/image_2.png) 
 
-## Docker
+## Docker and Kubernetes
 
 Install Docker with Kubernetes (this requires Edge edition with Kubernetes enabled): [https://blog.docker.com/2018/01/docker-mac-kubernetes/](https://blog.docker.com/2018/01/docker-mac-kubernetes/) 
 
