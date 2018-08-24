@@ -45,7 +45,7 @@ You are provided with a list of Default Settings. Copy any setting that you want
    "window.zoomLevel": 0,
    "editor.fontSize": 24,
    "terminal.integrated.fontSize": 24,
-   "ballerina.home": "/Users/DSotnikov/Ballerina/distro/"
+   "ballerina.home": "/Users/lakmal/Ballerina/distro/"
 }
 ```
 
