@@ -77,13 +77,13 @@ As you experienced, to run our service inside a container required lot of manual
 
 Ballerina support builder (compiler) extensions and Docker will ship as one of default extension along with Kubernetes. We can use annotation in our code to generate proper Docker image while we compiling the code.
 
-First we need to import the Docker package. Docker package shiped under ballerinax org.
+First we need to import the Docker package. Docker package shiped under the ballerinax org.
 
 ```ballerina
 import ballerinax/docker;
 ```
 
-You can use `@docker:Config` on top of our service code. When we set a name in that, it will create proper Docker image and also generate Dockerfile. We can use `@docker:Expose` annotation on top of our listener endpoint, which allow expose our service outside traffic.
+You can use `@docker:Config` on top of our service code. When we set a name in that, it will create proper Docker image and also generate Dockerfile. We can use `@docker:Expose` annotation on top of our listener endpoint, which allow expose our service to outside traffic.
 
 Here is the code with two annotations.
 
@@ -130,6 +130,21 @@ Generating executable
 
 	Run the following command to start a Docker container:
 	docker run -d -p 9090:9090 hello-service:latest
+```
+
+```bash
+$  tree
+.
+├── demo.bal
+├── demo.balx
+└── docker-image
+    └── Dockerfile
+```
+
+```bash
+$ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED              SIZE
+hello-service                              latest              65e060439843        About a minute ago   127MB
 ```
 
 As you see, it will create balx, Dockerfile, Docker image and print the docker command to run our service as a container.
