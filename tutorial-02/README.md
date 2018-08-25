@@ -1,4 +1,4 @@
-## Annotations
+# Annotations
 
 Now, let’s tidy things up:
 
