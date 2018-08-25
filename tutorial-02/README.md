@@ -1,6 +1,20 @@
-## Annotations
+# Annotations
 
 Now, let’s tidy things up:
+
+Lets create a proper HTTP listener.
+
+```ballerina
+endpoint http:Listener listener {
+   port : 9090
+};
+```
+
+Obviously, the service now needs to be bound to that listener and not just inline anonymous declaration:
+
+```ballerina
+service<http:Service> hello bind listener {
+```
 
 We want the service to just be there at the root path / - so let’s add ServiceConfig to overwrite the default base path (which is the service name). Add the following annotation right before the service:
 
@@ -44,12 +58,16 @@ Your final code should be (see comments for the new lines that you add at this s
 
 import ballerina/http;
 
+endpoint http:Listener listener {
+   port : 9090
+};
+
 // Add this annotation to the service to change the base path
 @http:ServiceConfig {
   basePath: "/"
 }
 
-service<http:Service> hello bind {port:9090} {
+service<http:Service> hello bind listener {
 
   // Add this annotation to the resource to change its path
   // and to limit the calls to POST only
