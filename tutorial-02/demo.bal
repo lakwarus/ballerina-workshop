@@ -9,11 +9,15 @@
 
 import ballerina/http;
 
+endpoint http:Listener listener {
+    port: 9090
+};
+
 // Add this annotation to the service to change the base path
 @http:ServiceConfig {
    basePath: "/"
 }
-service<http:Service> hello bind {port:9090} {
+service<http:Service> hello bind listener {
    // Add this annotation to the resource to change its path
    // and to limit the calls to POST only 
    @http:ResourceConfig {
