@@ -1,6 +1,6 @@
 # Docker Support
 
-Now we have a microservice which can listen to a HTTP endpoint and process HTTP request. Now lets see how we can bundle our service into Docker image and run as a container.
+Now we have a microservice which can listen to a HTTP endpoint and process HTTP requests. Now lets see how we can bundle our service into Docker image and run as a container.
 
 First lets see how we can create executable binary file of our microservice.
 
@@ -30,7 +30,7 @@ EXPOSE  9090
 CMD ballerina run demo.balx
 ```
 
-You can find available Ballerina docker images which include the Ballerina runtime in Ballerina repository at docker hub. https://hub.docker.com/r/ballerina/ballerina/ Here I have not use a specific tag in the first line of the Dockerfile, which use latest available tag. 
+You can find pre build Ballerina runtime docker images at the [docker hub](https://hub.docker.com/r/ballerina/ballerina/). Here I have not used a specific tag in the first line of the Dockerfile and then it will automatically use `latest` tag. 
 
 We can execute following command within docker-image folder to create Docker image with our written code.
 
@@ -65,7 +65,7 @@ ballerina: initiating service(s) in 'demo.balx'
 ballerina: started HTTP/WS endpoint 0.0.0.0:909
 ```
 
-I used -p 9090:9090 to map container Ballerina service listen port to localhost 9090, because from Windows and Mac you can’t access container IP address directly. Now we can access our service by using following `curl` command.
+I used -p 9090:9090 to map listen port of Ballerina service (inside the container) to local 9090 port. Because from Windows and Mac you can’t access container IP address directly. Now we can access our service by using following `curl` command.
 
 ```bash
 $ curl -X POST -d " Ballerina, running as a container" http://localhost:9090
