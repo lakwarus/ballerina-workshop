@@ -1,4 +1,4 @@
-# Tutorial 01 - Hello World 
+# Hello World 
 
 In the terminal pane of VS Code (or in the terminal window), inside the Demo folder, open the empty demo.bal that you created:
 
