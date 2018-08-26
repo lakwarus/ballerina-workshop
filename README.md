@@ -2,7 +2,7 @@
 
 Docker and Kubernetes are key elements of modern cloud native deployment automations. After building your microservices, common practice is to create docker images and create YAML files to automate the deployment with Docker and Kubernetes. Writing these YAMLs, Dockerfile descriptors are really painful and error prone. 
 
-Ballerina is a new cloud native programing language which understands the architecture around it - the compiler is environment aware with microservices directly deployable into infrastructure like Docker and Kubernetes. 
+[Ballerina](http://ballerina.io) is a new cloud native programing language which understands the architecture around it - the compiler is environment aware with microservices directly deployable into infrastructure like Docker and Kubernetes. 
 
 In this workshop we will have hands-on sessions on following:
 - How to achieve service resiliency in microservices
