@@ -178,8 +178,25 @@ Generating executable
 	Run the following command to deploy the Kubernetes artifacts: 
 	kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-04/kubernetes/
 ```
+```bash
+$ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE
+hello-service-k8s                          latest              18a89b138ec0        6 minutes ago       127MB
 
-Let's follow the instruction printed out by the compiler.
+
+$ tree
+.
+├── README.md
+├── demo.bal
+├── demo.balx
+└── kubernetes
+    ├── demo_deployment.yaml
+    ├── demo_svc.yaml
+    └── docker
+        └── Dockerfile
+```
+
+Compiler has created relevant Docker image, Dockerfile, Deployment and Service YAMLs. Let's follow the instruction printed out by the compiler.
 
 ```bash
 $ kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-04/kubernetes/
