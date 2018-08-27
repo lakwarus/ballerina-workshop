@@ -123,7 +123,9 @@ Now lets annotate our service endpoint to generate relevant Kubernetes Service w
 
 ```ballerina
 @kubernetes:Service {
-   serviceType: "NodePort"
+   serviceType: "NodePort",
+   name: "hello-service"
+
 }
 ``` 
 
@@ -134,7 +136,9 @@ import ballerina/http;
 import ballerinax/kubernetes;
 
 @kubernetes:Service {
-   serviceType: "NodePort"
+   serviceType: "NodePort",
+   name: "hello-service"
+
 }
 endpoint http:Listener listener {
    port: 9090
@@ -201,7 +205,7 @@ Compiler has created relevant Docker image, Dockerfile, Deployment and Service Y
 ```bash
 $ kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-04/kubernetes/
 deployment.extensions "hello-service-deployment" created
-service "listener-svc" created
+service "hello-service-svc" created
 ```
 ```bash
 $ kubectl get pods
@@ -211,9 +215,9 @@ hello-service-deployment-74fbb6784-hdr27   1/1       Running   0          7s
 hello-service-deployment-74fbb6784-lsqn5   1/1       Running   0          7s
 
 $ kubectl get service
-NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-kubernetes     ClusterIP   10.96.0.1       	<none>        443/TCP          33d
-listener-svc   NodePort    10.107.109.32   <none>        9090:30621/TCP   33s
+NAME           		TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes     		ClusterIP   10.96.0.1       	<none>        443/TCP          33d
+hello-service-svc   	NodePort    10.107.109.32   <none>        9090:30621/TCP   33s
 ```
 
 If we curled
