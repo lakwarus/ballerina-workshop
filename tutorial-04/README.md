@@ -2,7 +2,7 @@
 
 In the last tutorial we were able to run our service inside a Docker container. In this tutorial we will see how we can run our service on a Kubernetes cluster.
 
-Kubernetes POD is the simplest way to run our service on a Kubernetes cluster. But to support essential features like number of replicas,  liveness probe, rolling updates etc, we should create [Kubernetes Deployment] (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) kind.  
+Kubernetes POD is the simplest way to run our service on a Kubernetes cluster. But to support essential features like number of replicas,  liveness probe, rolling updates etc, we should create [Kubernetes Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) kind.  
 
 Let's get a sample template and add our service information. You can find sample YAML file [here](./k8s/hello-service-deployment.yaml). We can used previously created docker image, hello-service:latest. 
 
