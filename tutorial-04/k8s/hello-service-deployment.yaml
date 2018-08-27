@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-service-deployment
+  labels:
+    app: hello-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-service
+  template:
+    metadata:
+      labels:
+        app: hello-service
+    spec:
+      containers:
+      - name: hello-service
+        image: hello-service:latest
+        imagePullPolicy: "IfNotPresent"
+        ports:
+        - containerPort: 9090
