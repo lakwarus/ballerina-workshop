@@ -54,7 +54,7 @@ hello-service-deployment-688c6846f9-s6sn9   1/1       Running   0          10s
 
 Since we have define to have 3 replicas in hello-service-deployment YAML, Kubernetes will created 3 Kubernetes PODs. 
 
-You can’t directly access Kubernetes PODs. We need to expose our hello-service via a [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/). Kubernetes service has different types.  `ClusterIP` type services can only access within the Kubernetes cluster. Since we need to access this service from outside of the Kubernetes cluster, at least we should create `NodeType` Service. Here is a sample Service(./k8s/hello-service.yaml)
+You can’t directly access Kubernetes PODs. We need to expose our hello-service via a [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/). Kubernetes service has different types.  `ClusterIP` type services can only access within the Kubernetes cluster. Since we need to access this service from outside of the Kubernetes cluster, at least we should create `NodeType` Service. [Here](./k8s/hello-service.yaml) is a sample Service
 
 
 ```YAML
