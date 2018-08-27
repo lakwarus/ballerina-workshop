@@ -2,7 +2,8 @@ import ballerina/http;
 import ballerinax/kubernetes;
 
 @kubernetes:Service {
-    serviceType: "NodePort"
+    serviceType: "NodePort",
+    name: "hello-service"
 }
 endpoint http:Listener listener {
     port: 9090
