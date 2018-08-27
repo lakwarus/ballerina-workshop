@@ -1,6 +1,6 @@
 # Docker Support
 
-Now we have a microservice which can listen to a HTTP endpoint and process HTTP request. Now lets see how we can bundle our service into Docker image and run as a container.
+Now we have a microservice which can listen to a HTTP endpoint and process HTTP requests. Now lets see how we can bundle our service into Docker image and run as a container.
 
 First lets see how we can create executable binary file of our microservice.
 
@@ -30,7 +30,7 @@ EXPOSE  9090
 CMD ballerina run demo.balx
 ```
 
-You can find available Ballerina docker images which include the Ballerina runtime in Ballerina repository at docker hub. https://hub.docker.com/r/ballerina/ballerina/ Here I have not use a specific tag in the first line of the Dockerfile, which use latest available tag. 
+You can find pre build Ballerina runtime docker images at the [docker hub](https://hub.docker.com/r/ballerina/ballerina/). Here I have not used a specific tag in the first line of the Dockerfile and then it will automatically use `latest` tag. 
 
 We can execute following command within docker-image folder to create Docker image with our written code.
 
@@ -65,7 +65,7 @@ ballerina: initiating service(s) in 'demo.balx'
 ballerina: started HTTP/WS endpoint 0.0.0.0:909
 ```
 
-I used -p 9090:9090 to map container Ballerina service listen port to localhost 9090, because from Windows and Mac you can’t access container IP address directly. Now we can access our service by using following `curl` command.
+I used -p 9090:9090 to map listen port of Ballerina service (inside the container) to local 9090 port. Because from Windows and Mac you can’t access container IP address directly. Now we can access our service by using following `curl` command.
 
 ```bash
 $ curl -X POST -d " Ballerina, running as a container" http://localhost:9090
@@ -77,13 +77,13 @@ As you experienced, to run our service inside a container required lot of manual
 
 Ballerina support builder (compiler) extensions and Docker will ship as one of default extension along with Kubernetes. We can use annotation in our code to generate proper Docker image while we compiling the code.
 
-First we need to import the Docker package. Docker package shiped under ballerinax org.
+First we need to import the Docker package. Docker package shiped under the ballerinax org.
 
 ```ballerina
 import ballerinax/docker;
 ```
 
-You can use `@docker:Config` on top of our service code. When we set a name in that, it will create proper Docker image and also generate Dockerfile. We can use `@docker:Expose` annotation on top of our listener endpoint, which allow expose our service outside traffic.
+You can use `@docker:Config` on top of our service code. When we set a name in that, it will create proper Docker image and also generate Dockerfile. We can use `@docker:Expose` annotation on top of our listener endpoint, which allow expose our service to outside traffic.
 
 Here is the code with two annotations.
 
@@ -130,6 +130,21 @@ Generating executable
 
 	Run the following command to start a Docker container:
 	docker run -d -p 9090:9090 hello-service:latest
+```
+
+```bash
+$  tree
+.
+├── demo.bal
+├── demo.balx
+└── docker-image
+    └── Dockerfile
+```
+
+```bash
+$ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED              SIZE
+hello-service                              latest              65e060439843        About a minute ago   127MB
 ```
 
 As you see, it will create balx, Dockerfile, Docker image and print the docker command to run our service as a container.
