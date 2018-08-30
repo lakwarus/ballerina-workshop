@@ -5,11 +5,10 @@ Docker and Kubernetes are key elements of modern cloud native deployment automat
 [Ballerina](http://ballerina.io) is a new cloud native programing language which understands the architecture around it - the compiler is environment aware with microservices directly deployable into infrastructure like Docker and Kubernetes. 
 
 In this workshop we will have hands-on sessions on following:
-- How to achieve service resiliency in microservices
-- How to secure your microservices by design
-- How to handle async and worker in microservice
-- How to deploy microservice into Kubernetes without written YAMLs and dockerfile
-- How to scale microservice with Kubernetes 
+- [Hello World](./turotial-01)/ - Writing Hello World service
+- [Annotation support](./tutorial-02/) - How to use annotation in your code
+- [Docker Supoort](./tutorial-03)/ - How to deploy your serive in a Docker container
+- [Kubernetes Support](./tutorial-04/) - How to run your service in a K8S cluster
 
 ### Workshop duration and audience
 Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
