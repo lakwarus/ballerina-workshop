@@ -37,8 +37,16 @@ service<http:Service> hello bind listener{
         http:Response res;
         string payload = check request.getPayloadAsString();
 
+        if (!payload.contains("@ballerinalang")) {
+            payload = payload + " @ballerinalang";
+        }
         twitter:Status st = check tw->tweet(payload);
-        res.setPayload("Twitted :"+ st.text +"!\n");
+        json resJson = {
+            text: payload,
+            id: st.id,
+            agent: "ballerina"
+        }; 
+        res.setPayload(untaint resJson);
         _ = caller->respond(res);
     }
 }
