@@ -9,6 +9,8 @@ In this workshop we will have hands-on sessions on following:
 - [Annotation support](./tutorial-02/) - How to use annotation in your code
 - [Docker Supoort](./tutorial-03/) - How to deploy your serive in a Docker container
 - [Kubernetes Support](./tutorial-04/) - How to run your service in a K8S cluster
+- [Connector Support](./tutorial-05/) - How to integrate your service with external service(Twitter) 
+- [Kubernetes ConfigMap Support](./tutorial-06/) - How to pass configurations to your service running on K8S cluster.
 
 ### Workshop duration and audience
 Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
