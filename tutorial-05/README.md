@@ -117,10 +117,6 @@ Go ahead and run it and this time pass the config file:
 $ ballerina run demo.bal --config twitter.toml
 ```
 
-Demo the empty twitter timeline:
-
-![image alt text](img/image_9.png)
-
 Now go to the terminal window and pass a tweet:
 
 ```
@@ -130,9 +126,7 @@ Tweeted: Ballerina
 
 Let’s go ahead and check out the feed:
 
-![image alt text](img/image_10.png)
-
-Very cool. In just a few lines of code our twitter integration started working!
+In just a few lines of code our twitter integration started working!
 
 Now let’s go back to code and make it even more cool by adding transformation logic. This is a very frequent task in integration apps because the format that your backend exposes and returns is often different from what the application or other services need.
 
@@ -156,22 +150,47 @@ And obviously it makes sense to return not just a string but a meaningful JSON w
       res.setPayload(untaint myJson);
 ```
 
-Go ahead and run it:
+In the previous sample we ran our service by using `ballerina run` command in our local machine. We passed twitter.toml as command line argument. But in the Kubernetes system, best practices to pass configs is by using Kubernetes ConfigMap. You can use `@kubernetes:ConfigMap` annotation on top of our service. [Here](./demo.bal) is the full code sample
+
+Go ahead and build it:
 
 ```
-$ ballerina run demo.bal --config twitter.toml
-ballerina: initiating service(s) in 'demo.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+$ ballerina build demo.bal
+Compiling source
+    demo.bal
+
+Generating executable
+    demo.balx
+	@kubernetes:Service 			 - complete 1/1
+	@kubernetes:ConfigMap 			 - complete 1/1
+	@kubernetes:Deployment 			 - complete 1/1
+	@kubernetes:Docker 			 - complete 3/3 
+
+	Run the following command to deploy the Kubernetes artifacts: 
+	kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-05/kubernetes/
+```
+```bash
+$ kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-05/kubernetes/
+configmap "hello-ballerina-conf-config-map" created
+deployment.extensions "hello-service-deployment" created
+service "hello-service" created
+
+$ kubectl get pods
+NAME                                        READY     STATUS    RESTARTS   AGE
+hello-service-deployment-666f4f4bbf-v248j   1/1       Running   0          59s
+
+$ kubectl get svc
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+hello-service   NodePort    10.101.202.8   <none>        9090:30389/TCP   1m
+kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP          37d
 ```
 
-Now we got a much nicer JSON:
+Lets access our service. Now we got a much nicer JSON:
 
 ```
-$ curl -d "My new tweet" -X POST localhost:9090
+$ curl -d "My new tweet" -X POST localhost:30389
 {"text":"My new tweet @ballerinalang","id":978399924428550145,"agent":"ballerina"}
 ```
-
-![image alt text](img/image_11.png)
 
 Now your code will look like:
 
@@ -199,6 +218,9 @@ endpoint http:Listener listener {
 
 @http:ServiceConfig {
   basePath: "/"
+}
+@kubernetes:ConfigMap {
+    ballerinaConf: "./twitter.toml"
 }
 @kubernetes:Deployment {
    name: "hello-service-deployment",
