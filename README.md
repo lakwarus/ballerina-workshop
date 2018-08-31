@@ -10,12 +10,12 @@ In this workshop we will have hands-on sessions on following:
 - [Docker Supoort](./tutorial-03/) - How to deploy your serive in a Docker container
 - [Kubernetes Support](./tutorial-04/) - How to run your service in a K8S cluster
 - [Connector Support](./tutorial-05/):
--- How to integrate your service with external service(Twitter) 
--- how to pass configurations to your service by using K8S ConfigMap. 
+- - How to integrate your service with external service(Twitter) 
+- - how to pass configurations to your service by using K8S ConfigMap. 
 - [Data Integration](./tutorial-06/): 
--- How to integrate your serivce with Database. 
--- How to handle data security. 
--- How to add custom library files into our service Docker image
+- - How to integrate your serivce with Database. 
+- - How to handle data security. 
+- - How to add custom library files into our service Docker image
 
 ### Workshop duration and audience
 Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
