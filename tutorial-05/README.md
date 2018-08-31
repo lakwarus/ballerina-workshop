@@ -179,6 +179,10 @@ $ kubectl get pods
 NAME                                        READY     STATUS    RESTARTS   AGE
 hello-service-deployment-666f4f4bbf-v248j   1/1       Running   0          59s
 
+$ kubectl get configmaps
+NAME                              DATA      AGE
+hello-ballerina-conf-config-map   1         5m
+
 $ kubectl get svc
 NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
 hello-service   NodePort    10.101.202.8   <none>        9090:30389/TCP   1m
