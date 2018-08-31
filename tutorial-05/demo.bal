@@ -22,7 +22,9 @@ endpoint http:Listener listener {
 @http:ServiceConfig {
     basePath: "/"
 }
-
+@kubernetes:ConfigMap {
+    ballerinaConf: "./twitter.toml"
+}
 @kubernetes:Deployment {
     name: "hello-service-deployment",
     image: "hello-service-k8s",
