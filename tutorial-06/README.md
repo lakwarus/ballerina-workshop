@@ -156,7 +156,7 @@ copyFiles: [{ target: "/ballerina/runtime/bre/lib",
         source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
 ```
 
-annotation property copy `mysql-connector-java-8.0.11.jar` into my service Docker image. Lets copy resource folder into tutorial-06 folder
+annotation property to copy `mysql-connector-java-8.0.11.jar` into my service Docker image. First copy resources folder into tutorial-06 folder.
 
 ```bash
 $ cp -a ../resources .
