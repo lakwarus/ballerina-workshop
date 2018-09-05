@@ -25,7 +25,7 @@ In this workshop we will have hands-on sessions on following:
   - How add ingress config
   
 ### Workshop duration and audience
-Total time: 120-180 minutes depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
+Total time: 180 minutes depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
 
 Target audience: technical: workshop, meetups, technical customers/partners - this is a dev-level workshop
 
