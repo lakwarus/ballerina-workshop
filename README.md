@@ -25,14 +25,11 @@ In this workshop we will have hands-on sessions on following:
   - How add ingress config
   
 ### Workshop duration and audience
-Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
+Total time: 180 minutes depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
 
 Target audience: technical: workshop, meetups, technical customers/partners - this is a dev-level workshop
 
 # Prep / requirements
-
-## Slide deck
-
 
 ## Ballerina
 
@@ -82,11 +79,11 @@ You are provided with a list of Default Settings. Copy any setting that you want
 
 ## Docker and Kubernetes
 
-Install Docker with Kubernetes (this requires Edge edition with Kubernetes enabled): [https://blog.docker.com/2018/01/docker-mac-kubernetes/](https://blog.docker.com/2018/01/docker-mac-kubernetes/) 
+If your on Mac install [Docker with Kubernetes](https://store.docker.com/editions/community/docker-ce-desktop-mac) 
 
-Demo tested on:
+If your on Windows install [Docker with Kubernetes](https://store.docker.com/editions/community/docker-ce-desktop-windows)
 
-![image alt text](img/image_3.png)
+Alternatively you can use [minikube](https://github.com/kubernetes/minikube)
 
 ## Twitter
 
