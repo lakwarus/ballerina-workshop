@@ -120,7 +120,7 @@ endpoint http:Listener listener {
     name: "quotes",
     image: "lakwarus/quotes",
     copyFiles: [{ target: "/ballerina/runtime/bre/lib",
-        source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
+        source: "../resources/lib/mysql-connector-java-8.0.11.jar" }]
 }
 service<http:Service> quotes bind listener {
     @http:ResourceConfig {
@@ -153,14 +153,11 @@ Important thing to notice is, I have used
 
 ```ballerina
 copyFiles: [{ target: "/ballerina/runtime/bre/lib",
-        source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
+        source: "../resources/lib/mysql-connector-java-8.0.11.jar" }]
 ```
 
-annotation property to copy `mysql-connector-java-8.0.11.jar` into my service Docker image. First copy resources folder into tutorial-06 folder.
+annotation property to copy `mysql-connector-java-8.0.11.jar` into my service Docker image.
 
-```bash
-$ cp -a ../resources .
-```
 Lets build quote.bal
 
 ```bash
