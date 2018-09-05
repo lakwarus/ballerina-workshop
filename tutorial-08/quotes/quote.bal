@@ -16,8 +16,7 @@ endpoint mysql:Client quotesDB {
 };
 
 @kubernetes:Service{
-    name: "quotes",
-    serviceType: "ClusterIP"
+    name: "quotes"
 }
 endpoint http:Listener listener {
     port: 8080
@@ -37,9 +36,17 @@ service<http:Service> quotes bind listener {
         methods: ["POST"]
     }
     quote (endpoint caller, http:Request request) {
+
+        io:println("Request recived...");
         string category = check request.getPayloadAsString();
-       
-        var selectRet = quotesDB->select("SELECT * FROM quotes WHERE category = '" + untaint category + "'" , ());
+        int id;
+        if (category=="Docker") {
+            id = math:randomInRange(100, 105);        
+        }
+        if (category=="K8S") {
+            id = math:randomInRange(106, 115);        
+        }        
+        var selectRet = quotesDB->select("SELECT * FROM quotes WHERE ID = " + id , ());
         table dt;
         match selectRet {
             table tableReturned => dt = tableReturned;
@@ -49,10 +56,17 @@ service<http:Service> quotes bind listener {
         var jsonConversionRet = <json>dt;
         match jsonConversionRet {
             json jsonRes => {
-                http:Response res;
-                json selectedQuote = untaint (jsonRes);
-                res.setJsonPayload(selectedQuote, contentType = "application/json");
-                _ = caller->respond(res);
+                // to simulate network failures
+                // send results only for even id numbers
+                if (id%2==0) {
+                    http:Response res;
+                    json selectedQuote = untaint (jsonRes);
+                    res.setJsonPayload(selectedQuote,contentType = "application/json");
+                    _ = caller->respond(res);
+                    io:println("Request sent...");
+                }else{
+                    io:println("Result drop to simulate network failures");
+                }
             }
             error e => io:println("Error in table to json conversion");
         }            

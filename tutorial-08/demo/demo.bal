@@ -2,6 +2,7 @@ import ballerina/http;
 import ballerinax/kubernetes;
 import wso2/twitter;
 import ballerina/config;
+import ballerina/io;
 
 endpoint twitter:Client tw {
     accessToken: config:getAsString("accessToken"),
@@ -12,9 +13,25 @@ endpoint twitter:Client tw {
 };
 
 endpoint http:Client quoteEP {
-    url: "http://quotes:8080"
+    url: "http://quotes:8080",
+    retryConfig: {
+        // Initial retry interval in milliseconds.
+        interval: 20,
+        // Number of retry attempts before giving up
+        count: 5,
+        // Multiplier of the retry interval to exponentailly
+        // increase; retry interval
+        backOffFactor: 2,
+        // Upper limit of the retry interval in milliseconds
+        // If interval into backOffFactor value exceeded
+        // maxWaitInterval interval values. maxWaitInterval
+        // will be considered as the retry intrval.
+        maxWaitInterval: 20000
+    }
 };
-
+@kubernetes:Ingress {
+    hostname: "demo.lakmal.me"
+}
 @kubernetes:Service {
     serviceType: "NodePort",
     name: "hello-service"
