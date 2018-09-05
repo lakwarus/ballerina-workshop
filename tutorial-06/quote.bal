@@ -1,7 +1,6 @@
 import ballerina/http;
 import ballerina/mysql;
 import ballerina/io;
-import ballerina/math;
 import ballerina/config;
 import ballerinax/kubernetes;
 
@@ -30,7 +29,7 @@ endpoint http:Listener listener {
     name: "quotes",
     image: "lakwarus/quotes",
     copyFiles: [{ target: "/ballerina/runtime/bre/lib",
-        source: "../resources/lib/mysql-connector-java-8.0.11.jar" }]
+        source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
 }
 service<http:Service> quotes bind listener {
     @http:ResourceConfig {

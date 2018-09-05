@@ -120,7 +120,7 @@ endpoint http:Listener listener {
     name: "quotes",
     image: "lakwarus/quotes",
     copyFiles: [{ target: "/ballerina/runtime/bre/lib",
-        source: "../resources/lib/mysql-connector-java-8.0.11.jar" }]
+        source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
 }
 service<http:Service> quotes bind listener {
     @http:ResourceConfig {
@@ -148,5 +148,75 @@ service<http:Service> quotes bind listener {
         }            
     }
 }
+```
+Important thing to notice is, I have used 
+
+```ballerina
+copyFiles: [{ target: "/ballerina/runtime/bre/lib",
+        source: "./resources/lib/mysql-connector-java-8.0.11.jar" }]
+```
+
+annotation property copy `mysql-connector-java-8.0.11.jar` into my service Docker image. Lets copy resource folder into tutorial-06 folder
+
+```bash
+$ cp -a ../resources .
+```
+Lets build quote.bal
+
+```bash
+$ ballerina build quote.bal 
+Compiling source
+    quote.bal
+
+Generating executable
+    quote.balx
+	@kubernetes:Service 			 - complete 1/1
+	@kubernetes:ConfigMap 			 - complete 1/1
+	@kubernetes:Deployment 			 - complete 1/1
+	@kubernetes:Docker 			 - complete 3/3 
+
+	Run the following command to deploy the Kubernetes artifacts: 
+	kubectl apply -f /Users/lakmal/Documents/work/demo/CC/ballerina-workshop/tutorial-06/kubernetes/
+```
+
+```bash
+$ tree
+.
+├── README.md
+├── kubernetes
+│   ├── docker
+│   │   ├── Dockerfile
+│   │   └── mysql-connector-java-8.0.11.jar
+│   ├── quote_config_map.yaml
+│   ├── quote_deployment.yaml
+│   └── quote_svc.yaml
+├── mysql.toml
+├── quote.bal
+└── quote.balx
+```
+Now we can deploy and access the quote service
+
+```bash
+$ kubectl apply -f /Users/lakmal/Documents/ballerina-workshop/tutorial-06/kubernetes/
+configmap "quotes-ballerina-conf-config-map" created
+deployment.extensions "quotes" created
+service "quotes" created
+
+$ kubectl get pods
+NAME                      READY     STATUS    RESTARTS   AGE
+quotes-8579556c87-jzm6n   1/1       Running   1          6s
+
+$ kubectl get svc
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP          42d
+quotes       NodePort    10.102.116.11   <none>        8080:31090/TCP   31s
+
+```
+
+Access the quotes service by using `curl`
+
+```bash
+$ curl -X "POST" -d "Docker" http://localhost:31090/quotes/quote
+[{"ID":100, "CATEGORY":"Docker", "QUOTE":"Docker allows you to package an application with all of its dependencies into a standardized unit for software development"}, {"ID":101, "CATEGORY":"Docker", "QUOTE":"Docker eliminate the it works on my machine problem once and for all"}, {"ID":102, "CATEGORY":"Docker", "QUOTE":"Docker ensures consistent environments from development to production"}, {"ID":103, "CATEGORY":"Docker", "QUOTE":"Docker ensures your applications and resources are isolated and segregated"}, {"ID":104, "CATEGORY":"Docker", "QUOTE":"Docker reduces effort and risk of problems with application dependencies"}]
 ```
 
