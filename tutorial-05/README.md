@@ -60,6 +60,7 @@ import wso2/twitter;
 
 // this package helps read config files
 import ballerina/config;
+import ballerinax/kubernetes;
 
 // twitter package defines this type of endpoint
 // that incorporates the twitter API.
