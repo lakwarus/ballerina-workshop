@@ -16,12 +16,13 @@ In this workshop we will have hands-on sessions on following:
   - How to integrate your serivce with Database. 
   - How to handle data security. 
   - How to add custom library files into our service Docker image
-- [Microservice integration and Resiliency](./tutorial-07/):
+- [Microservice Composition](./tutorial-07/):
   - How to create a project
   - How to do microservice composition
+  - How to deploy multi service application on K8S
+- [Microservice integration and Resiliency](./tutorial-08/):
   - How to add service resiliency 
   - How add ingress config
-  - How to deploy multi service application on K8S
   
 ### Workshop duration and audience
 Total time: 120-180 minutes (including slides) depending on whether you type it all or copy from the pre-created script files, how fast you can do it, how many questions you get asked, and so on.
