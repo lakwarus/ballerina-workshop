@@ -9,11 +9,11 @@ With the emergence of microservices running the workload on a single container a
 
 Deployment options like Linux, virtual machines, containers, and Kubernetes are not a part of the developer’s programming experience. Developers love their coding and should ideally focus on solving business problems. We have tried to fill the gap between development and deployment by introducing DevOps, but, in practice, these two worlds live separately.
 
-So how can we make Kubernetes boring and enhance the developer experience? After some out-of-the-box thinking into how we can distinctively connect these two worlds, Ballerina Kubernetes annotations were born. Ballerina is an open source programming language for cloud-era application developers. It is intended to be the core of a language-centric middleware platform. It has all the general-purpose functionality expected of a modern programming language, but it also has several unusual aspects that make it particularly suitable for its intended purpose.
+So how can we make Kubernetes boring and enhance the developer experience? After some out-of-the-box thinking into how we can distinctively connect these two worlds, Ballerina Kubernetes annotations were born. [Ballerina](https://ballerina.io/?utm_source=devto&utm_medium=article&utm_campaign=kubernetes_ballerina_devto_article_feb20) is an open source programming language for cloud-era application developers. It is intended to be the core of a language-centric middleware platform. It has all the general-purpose functionality expected of a modern programming language, but it also has several unusual aspects that make it particularly suitable for its intended purpose.
 
-Note: I will only talk about how to run Ballerina applications on Kubernetes. If you are interested in the other capabilities of Ballerina please visit http://ballerina.io.
+Note: I will only talk about how to run Ballerina applications on Kubernetes. If you are interested in the other capabilities of Ballerina please visit [http://ballerina.io](https://ballerina.io/?utm_source=devto&utm_medium=article&utm_campaign=kubernetes_ballerina_devto_article_feb20)
 
-##Ballerina Kubernetes Annotation
+## Ballerina Kubernetes Annotation
 
 Developers would prefer to stay within their IDE instead of writing Docker files, generating Docker images, and writing Kubernetes YAML files. But running their application on Kubernetes and testing production behavior is important. Unfortunately, running an application in a Kubernetes cluster currently requires a steep learning curve for developers. 
 
@@ -141,4 +141,4 @@ It also support Istio and OpenShift artifact generation as well:
 @istio:VirtualService{}
 @openshift:Route{}
 
-More information on this can be found at https://github.com/ballerinax/kubernetes. To quickly learn about the language features in Ballerina, check out these Ballerina by Examples.
+More information on this can be found at https://github.com/ballerinax/kubernetes. To quickly learn about the language features in Ballerina, check out these [Ballerina by Examples](https://ballerina.io/learn/by-example/?utm_source=devto&utm_medium=article&utm_campaign=kubernetes_ballerina_devto_article_feb20).
