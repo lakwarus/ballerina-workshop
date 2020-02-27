@@ -124,6 +124,7 @@ Hello World!
 ```
 As you can see, using Ballerina annotations doesn’t interrupt the developer’s flow. The developer has to just code the annotations and the compiler takes care of the rest. Ballerina Kubernetes annotation reads the source code, populates the correct values and generates validated Kubernetes artifacts all while following best practices. The default values can be overridden by setting them as annotation properties. The IDE can even suggest what to put and where to put it in your source code. For example, see the following IDE suggestions under the @kubernetes:Deployment annotation:
 
+[]()
 
 Ballerina annotations can generate artifacts for all major Kubernetes `kinds` such as
 - @kubernetes:Deployment{}
