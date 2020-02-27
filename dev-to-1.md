@@ -126,19 +126,19 @@ As you can see, using Ballerina annotations doesn’t interrupt the developer’
 
 
 Ballerina annotations can generate artifacts for all major Kubernetes `kinds` such as
-@kubernetes:Deployment{}
-@kubernetes:Service{}
-@kubernetes:Ingress{}
-@kubernetes:HPA{}
-@kubernetes:Secret{}
-@kubernetes:ConfigMap{}
-@kubernetes:PersistentVolumeClaim{}
-@kubernetes:ResourceQuota{}
-@kubernetes:Job{}
+- @kubernetes:Deployment{}
+- @kubernetes:Service{}
+- @kubernetes:Ingress{}
+- @kubernetes:HPA{}
+- @kubernetes:Secret{}
+- @kubernetes:ConfigMap{}
+- @kubernetes:PersistentVolumeClaim{}
+- @kubernetes:ResourceQuota{}
+- @kubernetes:Job{}
 
 It also support Istio and OpenShift artifact generation as well:
-@istio:Gateway{}
-@istio:VirtualService{}
-@openshift:Route{}
+- @istio:Gateway{}
+- @istio:VirtualService{}
+- @openshift:Route{}
 
 More information on this can be found at https://github.com/ballerinax/kubernetes. To quickly learn about the language features in Ballerina, check out these [Ballerina by Examples](https://ballerina.io/learn/by-example/?utm_source=devto&utm_medium=article&utm_campaign=kubernetes_ballerina_devto_article_feb20).
